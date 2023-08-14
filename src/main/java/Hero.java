@@ -1,5 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Hero {
     private String hero_name;
@@ -8,12 +10,13 @@ public class Hero {
     private int hero_weakness;
     private static ArrayList<Hero> instances = new ArrayList<>();
 
+    private int squad_id;
     private static ArrayList<Squad> squadinstances;
     private boolean is_activated;
     private LocalDateTime createdAt;
     private int id;
 
-    public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness,ArrayList<Squad> all_squads) {
+    public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness,int squad_id,ArrayList<Squad> all_squads) {
         this.hero_name = hero_name;
         this.hero_age = hero_age;
         this.hero_power = hero_power;
@@ -21,6 +24,7 @@ public class Hero {
         squadinstances = all_squads;
         instances.add(this);
         this.id = instances.size();
+        this.squad_id  = squad_id;
     }
 
     public String getHero_name() {
@@ -66,5 +70,28 @@ public class Hero {
 
     public int getId() {
         return id;
+    }
+    public int is_Squad_Max_Exceeded(){
+        int MaxSize;
+        Map<Integer,Integer> squadTracker = new HashMap<Integer, Integer>();
+        //Create a hashmap with number of occurrences of an object
+        for(Hero hero : instances){
+            if(!squadTracker.containsKey(squad_id)){
+                squadTracker.put(squad_id,0);
+            }
+            else{
+                int heroInstance = squadTracker.get(squad_id) + 1;
+                squadTracker.replace(squad_id, heroInstance);
+            }
+        }
+        if(squadTracker.containsKey(squad_id)){
+            int C
+        }
+
+        for (Squad squad : squadinstances) {
+            if(squad.getId() == squad_id){
+                MaxSize = squad.getMax_size();
+            }
+        }
     }
 }

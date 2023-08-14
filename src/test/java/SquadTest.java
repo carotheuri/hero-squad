@@ -17,7 +17,7 @@ public class SquadTest {
     @Test
     public void AllSquadsContainsAllSquads_true() throws Exception {
         Squad squad1 = setupNewSquad();
-        Squad squad2 = new Squad(4,3,"hungro","Eradicate hunger");
+        Squad squad2 = new Squad(4,"hungro","Eradicate hunger");
         Assertions.assertTrue(Squad.getAll().contains(squad1));
         Assertions.assertTrue(Squad.getAll().contains(squad2));
     }
@@ -29,6 +29,6 @@ public class SquadTest {
 
     public Squad setupNewSquad(){
 
-        return new Squad(4,3,"hungro","Eradicate hunger");
+        return new Squad(4,"hungro","Eradicate hunger");
     }
 }
