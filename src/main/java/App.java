@@ -14,9 +14,8 @@ public class App {
             Squad squad2 = new Squad(10,5,"WarDefense","Defend Citizens and Evacuate them for Safety");
             Squad squad3 = new Squad(3,3,"Drusco","Fight Drug Addiction and help citizens reform");
             Squad squad4 = new Squad(2,3,"Hungro","Eradicate hunger by carrying out different initiatives");
-            ArrayList<Squad> projects = Squad.getAll();
-            model.put("projects", projects);
-            model.put("content",request.session().attribute("content"));
+            ArrayList<Squad> squads = Squad.getAll();
+            model.put("squads", squads);
             return new ModelAndView(model, "layout.hbs");
         }, new HandlebarsTemplateEngine());
     }
