@@ -1,3 +1,5 @@
+import spark.ExceptionHandler;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,26 +74,26 @@ public class Hero {
         return id;
     }
     public int is_Squad_Max_Exceeded(){
-        int MaxSize;
+        int currentSize;
         Map<Integer,Integer> squadTracker = new HashMap<Integer, Integer>();
         //Create a hashmap with number of occurrences of an object
         for(Hero hero : instances){
             if(!squadTracker.containsKey(squad_id)){
-                squadTracker.put(squad_id,0);
+                squadTracker.put(squad_id,1);
             }
             else{
                 int heroInstance = squadTracker.get(squad_id) + 1;
                 squadTracker.replace(squad_id, heroInstance);
             }
         }
-        if(squadTracker.containsKey(squad_id)){
-            int C
+        try{
+            currentSize = squadTracker.get(squad_id);
+            return currentSize;
+        }
+        catch (Exception e){
+            currentSize = 0;
+            return  currentSize;
         }
 
-        for (Squad squad : squadinstances) {
-            if(squad.getId() == squad_id){
-                MaxSize = squad.getMax_size();
-            }
-        }
     }
 }
