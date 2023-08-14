@@ -18,6 +18,12 @@ class HeroTest {
         Hero hero = new Hero("Superman","32",3,1,squads);
         Assertions.assertEquals("Superman", hero.getHero_name());
     }
+    @Test
+    public void HeroScoreForSupport() throws Exception {
+        ArrayList<Squad> squads = setUpSquads();
+        Hero hero = new Hero("Superman","32",1,2,squads);
+        Assertions.assertEquals("2nd Line Support", hero.getHero_Score());
+    }
     public ArrayList<Squad> setUpSquads(){
         Squad squad1 = new Squad(4,2,"WarFight","Fight all ongoing war, when negotiations are not working");
         Squad squad2 = new Squad(10,5,"WarDefense","Defend Citizens and Evacuate them for Safety");

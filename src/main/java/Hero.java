@@ -27,6 +27,19 @@ public class Hero {
         return hero_name;
     }
 
+    public String getHero_Score() {
+        double score = (hero_power+hero_weakness)/2;
+        if(Math.round(score) == 1){
+            return "1st Line Support";
+        }
+        else if(Math.round(score) == 2){
+            return "2nd Line Support";
+        }
+        else{
+            return "3rd Line Support";
+        }
+    }
+
     public String getHero_age() {
         return hero_age;
     }
