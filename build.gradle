@@ -6,6 +6,8 @@ plugins {
 group 'hero-squad'
 version '1.0-SNAPSHOT'
 
+mainClassName = 'App'
+
 repositories {
     mavenCentral()
 }
