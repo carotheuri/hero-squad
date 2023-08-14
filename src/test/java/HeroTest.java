@@ -12,6 +12,12 @@ class HeroTest {
         Hero hero = new Hero("Superman","32",3,1,squads);
         Assertions.assertEquals(true, hero instanceof  Hero);
     }
+    @Test
+    public void HeroInstantiatesWithHeroName_true() throws Exception {
+        ArrayList<Squad> squads = setUpSquads();
+        Hero hero = new Hero("Superman","32",3,1,squads);
+        Assertions.assertEquals("Superman", hero.getHero_name());
+    }
     public ArrayList<Squad> setUpSquads(){
         Squad squad1 = new Squad(4,2,"WarFight","Fight all ongoing war, when negotiations are not working");
         Squad squad2 = new Squad(10,5,"WarDefense","Defend Citizens and Evacuate them for Safety");
