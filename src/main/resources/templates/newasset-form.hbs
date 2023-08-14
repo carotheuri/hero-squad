@@ -1,8 +1,9 @@
 {{#partial "content"}}
 
     <form action="/heroes/new" method="post">
+        <label class="form-label rounded" for="hero-name"><b>Select Squad</b></label>
         <select class="form-select" aria-label="Default select example" id="department" name="department">
-            <option selected><b>Select Squad</b></option>
+            <option selected><b>--- Choose squad ---</b></option>
             {{#each}}
                 <option value="DigitalEngineering">Digital Engineering</option>
             {{/each}}
@@ -10,20 +11,23 @@
         <label class="form-label rounded" for="hero-name"><b>Hero Name</b></label>
         <input type="text" name="hero-name" id="hero-name" class="form-control"/>
         <label class="form-label rounded-pill" for="hero-age"><b>Heroe's Age</b></label>
-        <input type="text" name="hero-age" id="hero-age" class="form-control" />
+        <input type="text" name="hero-age" id="hero-age" class="form-control" /><br>
+        <label class="form-label rounded" for="hero-powers"><b>Select Heroes Power</b></label>
         <select class="form-select" aria-label="Default select example" name="hero-powers">
-            <option selected><b>Select Special Power</b></option>
+            <option selected><b>--- Choose Special Power ---</b></option>
             <option value="1">Money</option>
             <option value="2">Connection Resources</option>
             <option value="3">Physical Strength</option>
-        </select>
+        </select><br>
+        <label class="form-label rounded" for="hero-weakness"><b>Select Heroes Weakness</b></label>
         <select class="form-select" aria-label="Default select example" name="hero-weakness">
-            <option selected><b>Select Weakness</b></option>
+            <option selected><b>--- Choose Weakness ---</b></option>
             <option value="1">Enemies</option>
             <option value="2">Water</option>
             <option value="3">Fire</option>
-        </select>
-        <button type="submit" class="btn btn-default">Add new hero</button>
+        </select><br>
+<!--        <button type="submit" class="btn btn-default">Add new hero</button>-->
+        <button type="submit" class="btn btn-info">Add new hero</button>
     </form>
 
 {{/partial}}
