@@ -1,36 +1,30 @@
 {{#partial "content"}}
-    {{#if useremail }}
-    Welcome {{ useremail }}
-    <form action="/projects/new" method="post">
+
+    <form action="/heroes/new" method="post">
         <select class="form-select" aria-label="Default select example" id="department" name="department">
-            <option selected><b>Select Department</b></option>
-            <option value="DigitalEngineering">Digital Engineering</option>
-            <option value="FinancialServices<">Financial Services</option>
-            <option value="CoreBilling">Core Billing</option>
+            <option selected><b>Select Squad</b></option>
+            {{#each}}
+                <option value="DigitalEngineering">Digital Engineering</option>
+            {{/each}}
         </select><br>
-        <label class="form-label rounded" for="asset-name"><b>Asset Name</b></label>
-        <input type="text" name="asset-name" id="asset-name" class="form-control"/>
-        <label class="form-label rounded-pill" for="product-owner"><b>Product Owner</b></label>
-        <input type="text" id="product-owner" class="form-control" />
-        <label class="form-label rounded-pill"  for="project-description"><b>Project Description</b></label>
-        <input type="text" name="project-description" id="project-description" class="form-control" />
-        <label class="form-label rounded-pill" for="git-link"><b>Link to GIT</b></label>
-        <input type="text" name="git-link" id="git-link" class="form-control" />
-        <label class="form-label rounded-pill" for="project-benefit"><b>Project Benefit</b></label>
-        <input type="text" name="project-benefit" id="project-benefit" class="form-control" /><br>
-        <select class="form-select" aria-label="Default select example" name="deployed-server">
-            <option selected><b>Deployed Server</b></option>
-            <option value="k8">Kubernetes</option>
-            <option value="aws">AWS</option>
-            <option value="os">Openshift</option>
+        <label class="form-label rounded" for="hero-name"><b>Hero Name</b></label>
+        <input type="text" name="hero-name" id="hero-name" class="form-control"/>
+        <label class="form-label rounded-pill" for="hero-age"><b>Heroe's Age</b></label>
+        <input type="text" name="hero-age" id="hero-age" class="form-control" />
+        <select class="form-select" aria-label="Default select example" name="hero-powers">
+            <option selected><b>Select Special Power</b></option>
+            <option value="1">Money</option>
+            <option value="2">Connection Resources</option>
+            <option value="3">Physical Strength</option>
         </select>
-        <label class="form-label rounded-pill" for="project-issues"><b>Common Issues</b></label>
-        <input type="text" id="project-issues" class="form-control" /><br>
-        <button type="submit" class="btn btn-default">Add new project</button>
+        <select class="form-select" aria-label="Default select example" name="hero-weakness">
+            <option selected><b>Select Weakness</b></option>
+            <option value="1">Enemies</option>
+            <option value="2">Water</option>
+            <option value="3">Fire</option>
+        </select>
+        <button type="submit" class="btn btn-default">Add new hero</button>
     </form>
-    {{ else }}
-        <a href="/">Return to home page</a>
-    {{/if }}
 
 {{/partial}}
 

@@ -76,7 +76,7 @@
             </div>
         </section><!-- End Hero -->
         <!-- End Hero -->
-        <section class="section">
+        <section class="section" id="squad">
 
             <div class="container">
                 <div class="row justify-content-center text-center mb-5">
@@ -84,36 +84,16 @@
                         <h1 class="section-heading">Available Squads</h1>
                     </div>
                 </div>
-
                 <div class="row">
+                    {{#each squads}}
                     <div class="col-md-3">
                         <div class="step">
-                            <span class="number">01</span>
-                            <h3>Log In</h3>
-                            <p>Login to be able to interact with our assets</p>
+                            <span class="number">{{id}}</span>
+                            <h3>{{squad_name}}</h3>
+                            <p>{{squad_cause}}</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="step">
-                            <span class="number">02</span>
-                            <h3>Upload Assets</h3>
-                            <p>Navigate to Add Service tab and fill in the form and submit</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="step">
-                            <span class="number">03</span>
-                            <h3>View assets</h3>
-                            <p>View assets uploaded that exist in DIT</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="step">
-                            <span class="number">04</span>
-                            <h3>Edit assets</h3>
-                            <p>Edit asset details based on need.</p>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </section>
@@ -127,55 +107,17 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <img src="/images/person_1.jpg" style="width:70%;height:70%;" alt="">
-<!--                                <i class="bi bi-people"></i>-->
-                            </div>
-                            <h3 class="mb-3">Caroline Theuri</h3>
-                            <p>Software Engineer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <img src="/images/person_3.jpg" style="width:70%;height:70%;" alt="">
-                            </div>
-                            <h3 class="mb-3">Sharon Oloo</h3>
-                            <p>Software Engineer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <img src="/images/person_2.jpg" class="bi bi-people" alt="" style="width:70%;height:70%;">
-                            </div>
-                            <h3 class="mb-3">Simon Ondoro</h3>
-                            <p>Software Engineer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <img src="/images/person_2.jpg" class="bi bi-people" alt="" style="width:70%;height:70%;">
-                            </div>
-                            <h3 class="mb-3">Timothy Karanja</h3>
-                            <p>Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </section>
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="/vendor/aos/aos.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/vendor/php-email-form/validate.js"></script>
 
         <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>

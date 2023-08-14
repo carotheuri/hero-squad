@@ -8,15 +8,21 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
+        staticFileLocation("/public");
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            Squad squad1 = new Squad(4,2,"WarFight","Fight all ongoing war");
+            Squad squad1 = new Squad(4,2,"WarFight","Fight all ongoing war, when negotiations are not working");
             Squad squad2 = new Squad(10,5,"WarDefense","Defend Citizens and Evacuate them for Safety");
             Squad squad3 = new Squad(3,3,"Drusco","Fight Drug Addiction and help citizens reform");
             Squad squad4 = new Squad(2,3,"Hungro","Eradicate hunger by carrying out different initiatives");
             ArrayList<Squad> squads = Squad.getAll();
             model.put("squads", squads);
             return new ModelAndView(model, "layout.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/heroes/new", (request, response) -> { //URL to display form
+            Map<String, Object> model = new HashMap<String, Object>();
+//            model.put("useremail", request.session().attribute("useremail"));
+            return new ModelAndView(model, "newasset-form.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

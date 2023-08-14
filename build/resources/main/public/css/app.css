@@ -595,7 +595,7 @@ section {
 }
 
 #header.header-scrolled {
-  background: rgba(39, 70, 133, 0.8);
+  background: #FA8128;
   height: 60px;
 }
 
@@ -838,7 +838,7 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-section {
-  background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%), url(../images/hero.jpg);
+  background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, #ff5c07 100%), url(../images/hero.jpg);
   position: relative;
 }
 
