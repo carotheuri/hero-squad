@@ -7,17 +7,20 @@ public class Hero {
     private int hero_power;
     private int hero_weakness;
     private static ArrayList<Hero> instances = new ArrayList<>();
-    private Squad squad;
+
+    private static ArrayList<Squad> squadinstances;
     private boolean is_activated;
     private LocalDateTime createdAt;
     private int id;
 
-    public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness, Squad squad) {
+    public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness,ArrayList<Squad> all_squads) {
         this.hero_name = hero_name;
         this.hero_age = hero_age;
         this.hero_power = hero_power;
         this.hero_weakness = hero_weakness;
-        this.squad = squad;
+        squadinstances = all_squads;
+        instances.add(this);
+        this.id = instances.size();
     }
 
     public String getHero_name() {
@@ -38,10 +41,6 @@ public class Hero {
 
     public static ArrayList<Hero> getAll() {
         return instances;
-    }
-
-    public Squad getSquad() {
-        return squad;
     }
 
     public boolean isIs_activated() {
