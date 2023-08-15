@@ -4,9 +4,10 @@
         <label class="form-label rounded" for="hero-name"><b>Select Squad</b></label>
         <select class="form-select" aria-label="Default select example" id="squad" name="squad">
             <option selected><b>--- Choose squad ---</b></option>
-            {{#each squads}}
-                <option value="{{id}}">{{squad_name}}</option>
-            {{/each}}
+            <option value="1">WarFight</option>
+            <option value="2">WarDefense</option>
+            <option value="3">Drusco</option>
+            <option value="4">Hungro</option>
         </select><br>
         <label class="form-label rounded" for="hero-name"><b>Hero Name</b></label>
         <input type="text" name="hero-name" id="hero-name" class="form-control"/>

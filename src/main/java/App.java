@@ -22,7 +22,7 @@ public class App {
             return new ModelAndView(model, "newasset-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/heroes/new", (request, response) -> { //URL to make new post on POST route
-            ArrayList<Squad> squads = Squad.getAll();
+            ArrayList<Squad> squads = generalSquadsSetUp();
             ArrayList<Hero> heroes = Hero.getAll();
             Map<String, Object> model = new HashMap<String, Object>();
             int passed_squad_id = Integer.parseInt(request.queryParams("squad"));
@@ -33,13 +33,13 @@ public class App {
             Hero newHero = new Hero(hero_name, hero_age,hero_power,hero_weakness,passed_squad_id,squads);
             int currentSize = newHero.is_Squad_Max_Exceeded();
             request.session().attribute("currentSize", currentSize);
+            request.session().attribute("heroData", newHero);
             boolean is_Exceeded = false;
             for (Squad squad : squads) {
                 int session_size = request.session().attribute("currentSize");
                 if((squad.getId() == passed_squad_id) && (session_size > squad.getMax_size()) ){
                     is_Exceeded = true;
                     heroes.remove(newHero);
-                    response.redirect("/");
                     model.put("heroes",heroes);
                     model.put("response",is_Exceeded);
                 }

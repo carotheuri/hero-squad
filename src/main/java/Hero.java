@@ -18,6 +18,8 @@ public class Hero {
     private LocalDateTime createdAt;
     private int hero_id;
 
+    private String heroScore;
+
     public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness,int squad_id,ArrayList<Squad> all_squads) {
         this.hero_name = hero_name;
         this.hero_age = hero_age;
@@ -36,13 +38,16 @@ public class Hero {
     public String getHero_Score() {
         double score = (hero_power+hero_weakness)/2;
         if(Math.round(score) == 1){
-            return "1st Line Support";
+            heroScore = "1st Line Support";
+            return heroScore;
         }
         else if(Math.round(score) == 2){
-            return "2nd Line Support";
+            heroScore = "2nd Line Support";
+            return heroScore;
         }
         else{
-            return "3rd Line Support";
+            heroScore =  "3rd Line Support";
+            return heroScore;
         }
     }
 
