@@ -1,13 +1,18 @@
 {{#partial "content"}}
-   <h1>Successfully created</h1>
-   {{#if response}}
-    <p>Sorry kindly try another squad</p>
-    <a href="/heroes/new">Return to choose another squad</a>
+   <h1>Creation Status</h1>
+   {{#if response2}}
+   <p>Sorry you can only have one hero in one squad.</p>
    {{else}}
-   <p>Current hero: {{hero.hero_name}}</p>
-   <p>Age:{{hero.hero_age}}</p>
-   <p>Line of Support:   {{hero.heroScore}}</p>
+       {{#if response}}
+           <p>Sorry kindly try another squad</p>
+           <a href="/heroes/new">Return to choose another squad</a>
+       {{else}}
+           <p>Current hero: {{hero.hero_name}}</p>
+           <p>Age:{{hero.hero_age}}</p>
+           <p>Line of Support:   {{hero.heroScore}}</p>
+       {{/if}}
    {{/if}}
+
 {{/partial}}
 
 {{> navbar.hbs}}

@@ -105,4 +105,23 @@ public class Hero {
         }
 
     }
+    public boolean checkIfHeroExists(){
+        ArrayList<Hero> allHeroes = getAll();
+        Map<String,Integer> heroTracker = new HashMap<String, Integer>();
+        for(Hero hero : allHeroes){
+            if(!heroTracker.containsKey(hero)){
+                heroTracker.put(hero.hero_name,1);
+            }
+            else{
+                int heroInstance = heroTracker.get(hero_name) + 1;
+                heroTracker.replace(hero_name, heroInstance);
+            }
+        }
+        if(heroTracker.containsKey(hero_name)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

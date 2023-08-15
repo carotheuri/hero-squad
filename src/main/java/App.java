@@ -35,19 +35,28 @@ public class App {
             request.session().attribute("currentSize", currentSize);
             request.session().attribute("heroData", newHero);
             boolean is_Exceeded = false;
-            for (Squad squad : squads) {
-                int session_size = request.session().attribute("currentSize");
-                if((squad.getId() == passed_squad_id) && (session_size > squad.getMax_size()) ){
-                    is_Exceeded = true;
-                    heroes.remove(newHero);
-                    model.put("heroes",heroes);
-                    model.put("response",is_Exceeded);
-                }
-                else{
-                    model.put("response", is_Exceeded);
-                    model.put("hero",newHero);
+            boolean hero_Existence = false;
+            if(!newHero.checkIfHeroExists()){
+                for (Squad squad : squads) {
+                    int session_size = request.session().attribute("currentSize");
+                    if((squad.getId() == passed_squad_id) && (session_size > squad.getMax_size()) ){
+                        is_Exceeded = true;
+                        heroes.remove(newHero);
+                        model.put("heroes",heroes);
+                        model.put("response",is_Exceeded);
+                        model.put("response2",hero_Existence);
+                    }
+                    else{
+                        model.put("response", is_Exceeded);
+                        model.put("hero",newHero);
+                    }
                 }
             }
+            else{
+                hero_Existence = true;
+                model.put("response2",hero_Existence);
+            }
+
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
         get("/allheroes", (request, response) -> {

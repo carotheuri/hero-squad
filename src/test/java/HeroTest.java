@@ -35,6 +35,13 @@ class HeroTest {
         currentSize = hero.is_Squad_Max_Exceeded();
         Assertions.assertTrue(currentSize == 3);
     }
+    @Test
+    public void validatesOneHeroPerSquad() {
+        ArrayList<Squad> squads = setUpSquads();
+        Hero hero = new Hero("Superman","32",1,1,1 ,squads);
+        Hero hero2 = new Hero("Superman","32",1,1,1 ,squads);
+        Assertions.assertEquals(true, hero2.checkIfHeroExists());
+    }
 
     public ArrayList<Squad> setUpSquads(){
         Squad squad1 = new Squad(4,"WarFight","Fight all ongoing war, when negotiations are not working");
