@@ -8,14 +8,14 @@ public class Squad {
     private static ArrayList<Squad> instances = new ArrayList<>();
     private boolean is_activated;
     private LocalDateTime createdAt;
-    private int id;
+    private int squad_id;
 
     public Squad(int max_size, String squad_name, String squad_cause) {
         this.max_size = max_size;
         this.squad_name = squad_name;
         this.squad_cause = squad_cause;
         instances.add(this);
-        this.id = instances.size();
+        this.squad_id = instances.size();
     }
 
     public int getMax_size() {
@@ -43,14 +43,10 @@ public class Squad {
     }
 
     public int getId() {
-        return id;
+        return squad_id;
     }
 
-    public static Squad findById(int id) {
-        try {
-            return instances.get(id - 1);
-        } catch (IndexOutOfBoundsException exception) {
-            return null;
-        }
+    public static Squad findById(int id){
+        return instances.get(id-1); //why minus 1? See if you can figure it out.
     }
 }
