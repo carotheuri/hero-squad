@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+
+   <h1>Heroes list!</h1>
+
+   {{#if heroes}} <!--if posts exist, then -->
+   {{#each heroes }} <!--loop-->
+   <p>Current hero:</p>
+   {{#if (eq currentSize heroes.max_Size)}}
+       <p>Sorry limit exceeded</p>
+   {{/if}}
+
+   {{/each}}
+   {{else}} <!--no posts!-->
+   <p>No posts!</p>
+   {{/if}}
+
+
+
+
+{{/partial}}
+
+{{> navbar.hbs}}
