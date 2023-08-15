@@ -21,8 +21,25 @@ public class App {
         }, new HandlebarsTemplateEngine());
         get("/heroes/new", (request, response) -> { //URL to display form
             Map<String, Object> model = new HashMap<String, Object>();
-//            model.put("useremail", request.session().attribute("useremail"));
+            ArrayList<Squad> squads = Squad.getAll();
+            model.put("squads", squads);
             return new ModelAndView(model, "newasset-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/heroes/new", (request, response) -> { //URL to make new post on POST route
+            ArrayList<Squad> squads = Squad.getAll();
+            Map<String, Object> model = new HashMap<String, Object>();
+            int squad_id = Integer.parseInt(request.queryParams("squad"));
+            String hero_name = request.queryParams("hero-name");
+            String hero_age = request.queryParams("hero-age");
+            int hero_power = Integer.parseInt(request.queryParams("hero-powers"));
+            int hero_weakness = Integer.parseInt(request.queryParams("hero-weakness"));
+            Hero newHero = new Hero(hero_name, hero_age,hero_power,hero_weakness,squad_id,squads);
+            int currentSize = newHero.is_Squad_Max_Exceeded();
+            Squad foundSquad = Squad.findById(squad_id); //use it to find task
+            model.put("heroes", foundSquad);
+            model.put("heroes",currentSize);
+            model.put("heroes",newHero);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
