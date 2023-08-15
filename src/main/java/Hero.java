@@ -12,11 +12,11 @@ public class Hero {
     private int hero_weakness;
     private static ArrayList<Hero> instances = new ArrayList<>();
 
-    private int squad_id;
+    private int foreign_squad_id;
     private static ArrayList<Squad> squadinstances;
     private boolean is_activated;
     private LocalDateTime createdAt;
-    private int id;
+    private int hero_id;
 
     public Hero(String hero_name, String hero_age, int hero_power, int hero_weakness,int squad_id,ArrayList<Squad> all_squads) {
         this.hero_name = hero_name;
@@ -25,8 +25,8 @@ public class Hero {
         this.hero_weakness = hero_weakness;
         squadinstances = all_squads;
         instances.add(this);
-        this.id = instances.size();
-        this.squad_id  = squad_id;
+        this.hero_id = instances.size();
+        this.foreign_squad_id  = squad_id;
     }
 
     public String getHero_name() {
@@ -44,6 +44,10 @@ public class Hero {
         else{
             return "3rd Line Support";
         }
+    }
+
+    public int getForeign_squad_id() {
+        return foreign_squad_id;
     }
 
     public String getHero_age() {
@@ -71,23 +75,23 @@ public class Hero {
     }
 
     public int getId() {
-        return id;
+        return hero_id;
     }
     public int is_Squad_Max_Exceeded(){
         int currentSize;
         Map<Integer,Integer> squadTracker = new HashMap<Integer, Integer>();
         //Create a hashmap with number of occurrences of an object
         for(Hero hero : instances){
-            if(!squadTracker.containsKey(squad_id)){
-                squadTracker.put(squad_id,1);
+            if(!squadTracker.containsKey(foreign_squad_id)){
+                squadTracker.put(foreign_squad_id,1);
             }
             else{
-                int heroInstance = squadTracker.get(squad_id) + 1;
-                squadTracker.replace(squad_id, heroInstance);
+                int heroInstance = squadTracker.get(foreign_squad_id) + 1;
+                squadTracker.replace(foreign_squad_id, heroInstance);
             }
         }
         try{
-            currentSize = squadTracker.get(squad_id);
+            currentSize = squadTracker.get(foreign_squad_id);
             return currentSize;
         }
         catch (Exception e){

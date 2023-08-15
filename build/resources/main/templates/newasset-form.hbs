@@ -2,10 +2,10 @@
 
     <form action="/heroes/new" method="post">
         <label class="form-label rounded" for="hero-name"><b>Select Squad</b></label>
-        <select class="form-select" aria-label="Default select example" id="department" name="department">
+        <select class="form-select" aria-label="Default select example" id="squad" name="squad">
             <option selected><b>--- Choose squad ---</b></option>
-            {{#each}}
-                <option value="DigitalEngineering">Digital Engineering</option>
+            {{#each squads}}
+                <option value="{{id}}">{{squad_name}}</option>
             {{/each}}
         </select><br>
         <label class="form-label rounded" for="hero-name"><b>Hero Name</b></label>

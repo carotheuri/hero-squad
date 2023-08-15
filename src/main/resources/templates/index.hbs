@@ -1,1 +1,17 @@
-{{> layout.hbs}}
+{{#partial "content"}}
+
+    <h1 style="text-color:black;">Project list!</h1>
+    {{#if heroes}} <!--if projects exist, then -->
+
+        {{#each heroes }} <!--loop-->
+        <p>Hero Name: {{hero_name}}</p>
+        <p>Hero Age: {{hero_age}}</p>
+        <p>Hero Power: {{hero_age}}</p>
+        <p>Hero weakness: {{hero_age}}</p>
+        <p>Squad: {{squad_id}}</p>
+        {{/each}}
+    {{else}} <!--no posts!-->
+    <p>No heroes to display!</p>
+    {{/if}}
+
+{{/partial}}
